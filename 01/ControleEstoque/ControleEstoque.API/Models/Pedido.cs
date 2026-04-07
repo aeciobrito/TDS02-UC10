@@ -12,17 +12,7 @@ namespace ControleEstoque.API.Models
 
         [Required, StringLength(20)]
         public string Status { get; set; } // aberto, fechado, supspenso...
-    }
 
-    public class ItemPedido
-    {
-        [Key]
-        public int Id { get; set; }
-
-        [Required]
-        public int Quantidade { get; set; }
-
-        [Required, Column(TypeName = "decimal(10,2)")]
-        public decimal PrecoUnitario { get; set; }
+        public ICollection<ItemPedido> Itens { get; set; } = new List<ItemPedido>();        
     }
 }

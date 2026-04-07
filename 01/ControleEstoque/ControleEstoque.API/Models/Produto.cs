@@ -16,5 +16,11 @@ namespace ControleEstoque.API.Models
 
         [Required]
         public int QauntidadeEstoque { get; set; }
+
+        [ForeignKey("Fornecedor")]
+        public int FornecedorId { get; set; }
+        public Fornecedor Fornecedor { get; set; }
+
+        public ICollection<ItemPedido> ItensPedido { get; set; } = new List<ItemPedido>();
     }
 }

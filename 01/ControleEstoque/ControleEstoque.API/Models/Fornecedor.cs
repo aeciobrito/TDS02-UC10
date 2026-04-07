@@ -12,5 +12,7 @@ namespace ControleEstoque.API.Models
 
         [Required, StringLength(14)]
         public string CNPJ { get; set; }
+
+        public ICollection<Produto> Produtos { get; set; }
     }
 }

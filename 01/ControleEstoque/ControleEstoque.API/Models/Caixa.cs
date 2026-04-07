@@ -6,5 +6,7 @@ namespace ControleEstoque.API.Models
     {
         [StringLength(50)]
         public string Turno { get; set; }
+
+        public ICollection<Pedido> PedidosFechados { get; set; } = new List<Pedido>();
     }
 }
