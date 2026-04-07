@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// "Server=(localdb)\\mssqllocaldb;Database=ControleEstoqueDB;Trusted_Connection=True;"
 builder.Services.AddDbContext<AppDbContext>(opt 
     => opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddControllers();
