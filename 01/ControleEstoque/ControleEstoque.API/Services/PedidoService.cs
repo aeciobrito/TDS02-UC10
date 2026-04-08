@@ -13,9 +13,19 @@ namespace ControleEstoque.API.Services
             _context = context;
         }
 
-        public Task<Pedido> CriarPedidoAsync(int clienteId, List<ItemPedido> itens)
+        public async Task<Pedido> CriarPedidoAsync(int clienteId, List<ItemPedido> itens)
         {
-            throw new NotImplementedException();
+            var pedido = new Pedido()
+            {
+                ClienteId = clienteId,
+                DataPedido = DateTime.Now,
+                Status = "Aberto",
+                Itens = itens
+            };
+
+            _context.Pedidos.Add(pedido);
+            await _context.SaveChangesAsync();
+            return pedido;
         }
 
         public Task<IEnumerable<Pedido>> ListarPedidosDoClienteAsync(int clienteId)
