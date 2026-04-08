@@ -1,4 +1,5 @@
 using ControleEstoque.API.Data;
+using ControleEstoque.API.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 // "Server=(localdb)\\mssqllocaldb;Database=ControleEstoqueDB;Trusted_Connection=True;"
 builder.Services.AddDbContext<AppDbContext>(opt 
     => opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+
+// Registro do Service usando o ciclo de vida Scoped (uma instancia por requisicao)
+builder.Services.AddScoped<IPedidoService, PedidoService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

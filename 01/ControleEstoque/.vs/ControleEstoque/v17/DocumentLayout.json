@@ -3,20 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|c:\\users\\aecio.mbrito\\documents\\tds02-uc10\\01\\controleestoque\\controleestoque.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|solutionrelative:controleestoque.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|c:\\users\\aecio.mbrito\\documents\\tds02-uc10\\01\\controleestoque\\controleestoque.api\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|solutionrelative:controleestoque.api\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|c:\\users\\aecio.mbrito\\documents\\tds02-uc10\\01\\controleestoque\\controleestoque.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|solutionrelative:controleestoque.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|c:\\users\\aecio.mbrito\\documents\\tds02-uc10\\01\\controleestoque\\controleestoque.api\\services\\pedidoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|solutionrelative:controleestoque.api\\services\\pedidoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|c:\\users\\aecio.mbrito\\documents\\tds02-uc10\\01\\controleestoque\\controleestoque.api\\services\\ipedidoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|solutionrelative:controleestoque.api\\services\\ipedidoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|c:\\users\\aecio.mbrito\\documents\\tds02-uc10\\01\\controleestoque\\controleestoque.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|solutionrelative:controleestoque.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|c:\\users\\aecio.mbrito\\documents\\tds02-uc10\\01\\controleestoque\\controleestoque.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|solutionrelative:controleestoque.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|c:\\users\\aecio.mbrito\\documents\\tds02-uc10\\01\\controleestoque\\controleestoque.api\\migrations\\20260407010850_criacaoinicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|solutionrelative:controleestoque.api\\migrations\\20260407010850_criacaoinicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|c:\\users\\aecio.mbrito\\documents\\tds02-uc10\\01\\controleestoque\\controleestoque.api\\models\\fornecedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|solutionrelative:controleestoque.api\\models\\fornecedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|c:\\users\\aecio.mbrito\\documents\\tds02-uc10\\01\\controleestoque\\controleestoque.api\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|solutionrelative:controleestoque.api\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|c:\\users\\aecio.mbrito\\documents\\tds02-uc10\\01\\controleestoque\\controleestoque.api\\models\\caixa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6641EA26-0657-4EF5-B145-F6F5B0553EFC}|ControleEstoque.API\\ControleEstoque.API.csproj|solutionrelative:controleestoque.api\\models\\caixa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,52 +50,120 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "20260407010850_CriacaoInicial.cs",
-              "DocumentMoniker": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Migrations\\20260407010850_CriacaoInicial.cs",
-              "RelativeDocumentMoniker": "ControleEstoque.API\\Migrations\\20260407010850_CriacaoInicial.cs",
-              "ToolTip": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Migrations\\20260407010850_CriacaoInicial.cs",
-              "RelativeToolTip": "ControleEstoque.API\\Migrations\\20260407010850_CriacaoInicial.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T01:08:50.638Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "ControleEstoque.API\\Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "ControleEstoque.API\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T01:03:13.743Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\appsettings.json",
-              "RelativeDocumentMoniker": "ControleEstoque.API\\appsettings.json",
-              "ToolTip": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\appsettings.json",
-              "RelativeToolTip": "ControleEstoque.API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-07T01:00:41.862Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Program.cs",
               "RelativeDocumentMoniker": "ControleEstoque.API\\Program.cs",
               "ToolTip": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Program.cs",
               "RelativeToolTip": "ControleEstoque.API\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T00:56:13.27Z"
+              "WhenOpened": "2026-04-08T00:41:50.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PedidoService.cs",
+              "DocumentMoniker": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Services\\PedidoService.cs",
+              "RelativeDocumentMoniker": "ControleEstoque.API\\Services\\PedidoService.cs",
+              "ToolTip": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Services\\PedidoService.cs",
+              "RelativeToolTip": "ControleEstoque.API\\Services\\PedidoService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T00:29:03.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PedidosController.cs",
+              "DocumentMoniker": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Controllers\\PedidosController.cs",
+              "RelativeDocumentMoniker": "ControleEstoque.API\\Controllers\\PedidosController.cs",
+              "ToolTip": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Controllers\\PedidosController.cs",
+              "RelativeToolTip": "ControleEstoque.API\\Controllers\\PedidosController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T00:13:25.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IPedidoService.cs",
+              "DocumentMoniker": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Services\\IPedidoService.cs",
+              "RelativeDocumentMoniker": "ControleEstoque.API\\Services\\IPedidoService.cs",
+              "ToolTip": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Services\\IPedidoService.cs",
+              "RelativeToolTip": "ControleEstoque.API\\Services\\IPedidoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T23:22:42.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\appsettings.json",
+              "RelativeDocumentMoniker": "ControleEstoque.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\appsettings.json",
+              "RelativeToolTip": "ControleEstoque.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-07T23:01:02.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "ControleEstoque.API\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "ControleEstoque.API\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T22:59:53.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Fornecedor.cs",
+              "DocumentMoniker": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Models\\Fornecedor.cs",
+              "RelativeDocumentMoniker": "ControleEstoque.API\\Models\\Fornecedor.cs",
+              "ToolTip": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Models\\Fornecedor.cs",
+              "RelativeToolTip": "ControleEstoque.API\\Models\\Fornecedor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T22:58:42.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Models\\Cliente.cs",
+              "RelativeDocumentMoniker": "ControleEstoque.API\\Models\\Cliente.cs",
+              "ToolTip": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Models\\Cliente.cs",
+              "RelativeToolTip": "ControleEstoque.API\\Models\\Cliente.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T22:58:36.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Caixa.cs",
+              "DocumentMoniker": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Models\\Caixa.cs",
+              "RelativeDocumentMoniker": "ControleEstoque.API\\Models\\Caixa.cs",
+              "ToolTip": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Models\\Caixa.cs",
+              "RelativeToolTip": "ControleEstoque.API\\Models\\Caixa.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T22:58:31.996Z",
+              "EditorCaption": ""
             }
           ]
         }
