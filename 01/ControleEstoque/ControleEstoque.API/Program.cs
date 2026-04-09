@@ -1,6 +1,7 @@
 using ControleEstoque.API.Data;
 using ControleEstoque.API.Services;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,12 @@ builder.Services.AddDbContext<AppDbContext>(opt
 
 // Registro do Service usando o ciclo de vida Scoped (uma instancia por requisicao)
 builder.Services.AddScoped<IPedidoService, PedidoService>();
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    // encerra o erro de referência cíclica de objetos para o JSON
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
