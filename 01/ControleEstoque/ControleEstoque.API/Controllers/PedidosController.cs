@@ -21,12 +21,25 @@ namespace ControleEstoque.API.Controllers
         {
             var pedido = await _pedidoService.ObterPedidoComDetalhesAsync(id);
 
-            if (pedido == null)
-            {
-                return NotFound();
-            }
+            if (pedido == null) return NotFound();
 
-            return Ok(pedido);
+            var pedidoDto = new DetalhesPedidoDto
+            {
+                Id = pedido.Id,
+                DataPedido = pedido.DataPedido,
+                Status = pedido.Status,
+                ClienteId = pedido.ClienteId,
+                Itens = pedido.Itens.Select(i => new DetalhesItemPedidoDto
+                {
+                    Id = i.Id,
+                    Quantidade = i.Quantidade,
+                    PrecoUnitario = i.PrecoUnitario,
+                    ProdutoId = i.ProdutoId,
+                    ProdutoNome = i.Produto.Nome
+                }).ToList()
+            };
+
+            return Ok(pedidoDto);
         }
 
         [HttpPost]
