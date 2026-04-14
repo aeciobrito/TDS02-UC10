@@ -11,6 +11,7 @@ builder.Services.AddDbContext<AppDbContext>(opt
 
 // Registro do Service usando o ciclo de vida Scoped (uma instancia por requisicao)
 builder.Services.AddScoped<IPedidoService, PedidoService>();
+builder.Services.AddScoped<IFornecedorService, FornecedorService>();
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     // encerra o erro de referência cíclica de objetos para o JSON
