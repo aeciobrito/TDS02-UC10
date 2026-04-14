@@ -43,6 +43,8 @@ namespace ControleEstoque.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, AtualizarFornecedorDto dto)
         {
+            if(id != dto.Id) return BadRequest();
+
             var existe = await _fornecedorService.ObterPorIdAsync(id);
             if (existe == null) return NotFound();
 

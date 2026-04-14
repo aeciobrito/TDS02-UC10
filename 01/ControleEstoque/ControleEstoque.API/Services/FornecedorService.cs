@@ -1,12 +1,29 @@
-﻿using ControleEstoque.API.DTOs;
+﻿using ControleEstoque.API.Data;
+using ControleEstoque.API.DTOs;
+using Microsoft.EntityFrameworkCore;
 
 namespace ControleEstoque.API.Services
 {
     public class FornecedorService : IFornecedorService
     {
-        Task IFornecedorService.AtualizarAsync(AtualizarFornecedorDto dto)
+        #region Propriedades
+        private readonly AppDbContext _context;
+
+        public FornecedorService(AppDbContext context) 
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+        #endregion
+
+        async Task IFornecedorService.AtualizarAsync(AtualizarFornecedorDto dto)
+        {
+            var fornecedor = await _context.Fornecedores.FindAsync(dto.Id);
+            if(fornecedor != null)
+            {
+                fornecedor.NomeFantasia = dto.NomeFantasia;
+                _context.Fornecedores.Update(fornecedor);
+                await _context.SaveChangesAsync();
+            }
         }
 
         Task<FornecedorDto> IFornecedorService.CriarAsync(CriarFornecedorDto dto)
@@ -14,19 +31,42 @@ namespace ControleEstoque.API.Services
             throw new NotImplementedException();
         }
 
-        Task<FornecedorDto?> IFornecedorService.ObterPorIdAsync(int id)
+        async Task<FornecedorDto?> IFornecedorService.ObterPorIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var fornecedorModel = await _context.Fornecedores.FirstOrDefaultAsync(f => f.Id == id);
+
+            if (fornecedorModel == null)
+                return null;
+
+            return new FornecedorDto
+            {
+                Id = fornecedorModel.Id,
+                NomeFantasia = fornecedorModel.NomeFantasia,
+                CNPJ = fornecedorModel.CNPJ
+            };
         }
 
-        Task<IEnumerable<FornecedorDto>> IFornecedorService.ObterTodosAsync()
+        async Task<IEnumerable<FornecedorDto>> IFornecedorService.ObterTodosAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Fornecedores
+                .Select(f => new FornecedorDto 
+                {
+                    Id = f.Id,
+                    CNPJ = f.CNPJ,
+                    NomeFantasia = f.NomeFantasia
+                })
+                .ToListAsync();
         }
 
-        Task IFornecedorService.RemoverAsync(int id)
+        async Task IFornecedorService.RemoverAsync(int id)
         {
-            throw new NotImplementedException();
+            var fornecedor = await _context.Fornecedores.FirstOrDefaultAsync(f => f.Id == id);
+
+            if (fornecedor != null)
+            {
+                _context.Fornecedores.Remove(fornecedor);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }
