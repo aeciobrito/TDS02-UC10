@@ -1,5 +1,6 @@
 ﻿using ControleEstoque.API.Data;
 using ControleEstoque.API.DTOs;
+using ControleEstoque.API.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ControleEstoque.API.Services
@@ -26,9 +27,26 @@ namespace ControleEstoque.API.Services
             }
         }
 
-        Task<FornecedorDto> IFornecedorService.CriarAsync(CriarFornecedorDto dto)
+        async Task<FornecedorDto> IFornecedorService.CriarAsync(CriarFornecedorDto dto)
         {
-            throw new NotImplementedException();
+            // instanciar um fornecedor (Model)
+            var fornecedor = new Fornecedor()
+            {
+                CNPJ = dto.CNPJ,
+                NomeFantasia = dto.NomeFantasia
+            };
+
+            // adicionar o objeto no banco
+            _context.Fornecedores.Add(fornecedor);
+            await _context.SaveChangesAsync();
+
+            // retornar o objeto adicionado ao usuário (Dto)
+            return new FornecedorDto()
+            {
+                Id = fornecedor.Id,
+                CNPJ = fornecedor.CNPJ,
+                NomeFantasia = fornecedor.NomeFantasia
+            };
         }
 
         async Task<FornecedorDto?> IFornecedorService.ObterPorIdAsync(int id)
