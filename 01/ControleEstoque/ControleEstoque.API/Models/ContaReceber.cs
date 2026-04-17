@@ -15,9 +15,9 @@ namespace ControleEstoque.API.Models
         public decimal Valor { get; set; }
 
         [Required]
-        public DateTime DataVencimento { get; set; }
+        public DateOnly DataVencimento { get; set; }
 
-        public DateTime? DataPagamento { get; set; }
+        public DateOnly? DataPagamento { get; set; }
 
         [Required, StringLength(20)]
         public string Status { get; set; }
