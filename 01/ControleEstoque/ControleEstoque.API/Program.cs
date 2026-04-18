@@ -13,6 +13,7 @@ builder.Services.AddDbContext<AppDbContext>(opt
 builder.Services.AddScoped<IPedidoService, PedidoService>();
 builder.Services.AddScoped<IFornecedorService, FornecedorService>();
 builder.Services.AddScoped<IContaReceberService, ContaReceberService>();
+builder.Services.AddScoped<IProdutoService, ProdutoService>();
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
