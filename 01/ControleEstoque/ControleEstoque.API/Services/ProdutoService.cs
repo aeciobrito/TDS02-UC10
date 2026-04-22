@@ -2,7 +2,6 @@
 using ControleEstoque.API.DTOs;
 using ControleEstoque.API.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic;
 
 namespace ControleEstoque.API.Services
 {
@@ -15,13 +14,43 @@ namespace ControleEstoque.API.Services
             _context = context;
         }
 
-        public Task AtualizarProdutoDtoAsync(AtualizarProdutoDto dto)
+        public async Task AtualizarProdutoDtoAsync(AtualizarProdutoDto dto)
         {
-            throw new NotImplementedException();
+            // buscar essa entidade no banco
+            var produto = await _context.Produtos
+                .FirstOrDefaultAsync(p => p.Id == dto.Id);
+
+            if (produto != null) // se ela existir
+            {
+                // verifico se o fornecedor existe
+                var fornecedor = await _context.Fornecedores
+                    .FirstOrDefaultAsync(f => f.Id == dto.FornecedorId);
+
+                if(fornecedor == null)
+                    throw new ArgumentException("O fornecedor informado não existe");
+
+                // atualizo os dados do produto
+                produto.Nome = dto.Nome;
+                produto.Preco = dto.Preco;
+                produto.QauntidadeEstoque = dto.QauntidadeEstoque;
+                produto.FornecedorId = dto.FornecedorId;
+
+                // salvo e retorno
+                _context.Produtos.Update(produto);
+                await _context.SaveChangesAsync();
+            }
         }
 
         public async Task<ProdutoDto> CriarProdutoAsync(CriarProdutoDto dto)
         {
+            var fornecedorExistente = await _context.Fornecedores
+                .FirstOrDefaultAsync(f => f.Id == dto.FornecedorId);
+
+            if (fornecedorExistente == null)
+            {
+                throw new ArgumentException("O fornecedor informado não existe");
+            }
+
             var produto = new Produto()
             {
                 Nome = dto.Nome,
@@ -30,7 +59,6 @@ namespace ControleEstoque.API.Services
                 FornecedorId = dto.FornecedorId
             };
 
-            // E SE O FORNECEDOR NÃO EXISTIR NO BANCO DE DADOS?
             _context.Produtos.Add(produto);
             await _context.SaveChangesAsync();
 

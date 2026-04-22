@@ -34,6 +34,15 @@ namespace ControleEstoque.API.Controllers
             return Ok(novoProduto);
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] AtualizarProdutoDto dto)
+        {
+            if (id != dto.Id) return BadRequest("O ID da rota difere do id do Produto");
+
+            await _produtoService.AtualizarProdutoDtoAsync(dto);
+            return NoContent();
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
