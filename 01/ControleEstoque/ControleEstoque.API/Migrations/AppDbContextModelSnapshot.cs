@@ -30,6 +30,9 @@ namespace ControleEstoque.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("int");
+
                     b.Property<DateOnly?>("DataPagamento")
                         .HasColumnType("date");
 
@@ -50,6 +53,8 @@ namespace ControleEstoque.API.Migrations
                         .HasColumnType("decimal(10,2)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ClienteId");
 
                     b.ToTable("ContasReceber");
                 });
@@ -239,6 +244,17 @@ namespace ControleEstoque.API.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasDiscriminator().HasValue("Gerente");
+                });
+
+            modelBuilder.Entity("ControleEstoque.API.Models.ContaReceber", b =>
+                {
+                    b.HasOne("ControleEstoque.API.Models.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
                 });
 
             modelBuilder.Entity("ControleEstoque.API.Models.ItemPedido", b =>
