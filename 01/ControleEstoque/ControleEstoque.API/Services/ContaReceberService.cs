@@ -26,6 +26,7 @@ namespace ControleEstoque.API.Services
                 conta.DataVencimento = dto.DataVencimento;
                 conta.DataPagamento = dto.DataPagamento;
                 conta.Status = dto.Status;
+                conta.ClienteId = dto.ClienteId;
 
                 _context.ContasReceber.Update(conta);
                 await _context.SaveChangesAsync();
@@ -40,7 +41,8 @@ namespace ControleEstoque.API.Services
                 DataVencimento = dto.DataVencimento,
                 Descricao = dto.Descricao,
                 Status = dto.Status,
-                Valor = dto.Valor
+                Valor = dto.Valor,
+                ClienteId = dto.ClienteId                
             };
 
             await _context.ContasReceber.AddAsync(conta);
@@ -63,7 +65,8 @@ namespace ControleEstoque.API.Services
                 DataVencimento = conta.DataVencimento,
                 Descricao = conta.Descricao,
                 Status = conta.Status,
-                Valor = conta.Valor
+                Valor = conta.Valor,
+                ClienteId = conta.ClienteId
             };
         }
 
@@ -77,7 +80,8 @@ namespace ControleEstoque.API.Services
                     DataVencimento = cr.DataVencimento,
                     Descricao = cr.Descricao,
                     Status = cr.Status,
-                    Valor = cr.Valor                    
+                    Valor = cr.Valor,
+                    ClienteId = cr.ClienteId
                 })
                 .ToListAsync();
         }
