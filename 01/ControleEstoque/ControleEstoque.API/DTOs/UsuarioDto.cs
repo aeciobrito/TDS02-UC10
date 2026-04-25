@@ -13,4 +13,28 @@ namespace ControleEstoque.API.DTOs
         public string? CPF { get; set; }
         public string? Setor { get; set; }
     }
+
+    public class CriarClienteDto
+    {
+        public string Nome { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Senha { get; set; } = string.Empty;
+        public string CPF { get; set; } = string.Empty;
+    }
+
+    public class CriarCaixaDto
+    {
+        public string Nome { get; set; } = string.Empty; 
+        public string Email { get; set; } = string.Empty;
+        public string Senha { get; set; } = string.Empty;
+        public string Turno { get; set; } = string.Empty;
+    }
+
+    public class CriarGerenteDto
+    {
+        public string Nome { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Senha { get; set; } = string.Empty;
+        public string Setor { get; set; } = string.Empty;
+    }
 }
