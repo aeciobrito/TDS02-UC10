@@ -7,8 +7,10 @@ namespace ControleEstoque.API.Services
         Task<UsuarioDto> RegistrarClienteAsync(CriarClienteDto dto);
         Task<UsuarioDto> RegistrarCaixaAsync(CriarCaixaDto dto);
         Task<UsuarioDto> RegistrarGerenteAsync(CriarGerenteDto dto);
+        Task AtualizarClienteAsync(AtualizarClienteDto dto);
         Task<IEnumerable<UsuarioDto>> ListarTodosUsuariosAsync();
         Task<UsuarioDto?> ObterUsuarioPorEmailAsync(string email);
         Task<UsuarioDto?> AutenticarAsync(LoginDto dto);
+        
     }
 }
