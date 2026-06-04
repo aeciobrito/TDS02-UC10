@@ -48,7 +48,7 @@
               "RelativeDocumentMoniker": "ControleEstoque.API\\Program.cs",
               "ToolTip": "C:\\Users\\aecio.mbrito\\Documents\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Program.cs",
               "RelativeToolTip": "ControleEstoque.API\\Program.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-20T00:43:38.354Z",
               "EditorCaption": ""
@@ -63,8 +63,7 @@
               "RelativeToolTip": "ControleEstoque.API\\Controllers\\FornecedoresController.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAAABMAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T00:39:43.326Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T00:39:43.326Z"
             },
             {
               "$type": "Document",
@@ -76,8 +75,7 @@
               "RelativeToolTip": "ControleEstoque.API\\Services\\IUsuarioService.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T22:55:27.632Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-24T22:55:27.632Z"
             },
             {
               "$type": "Document",

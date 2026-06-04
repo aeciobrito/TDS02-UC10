@@ -1,11 +1,13 @@
 using ControleEstoque.API.DTOs;
 using ControleEstoque.API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ControleEstoque.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class ContasReceberController : ControllerBase
     {
         private readonly IContaReceberService _contaReceberService;
@@ -22,7 +24,7 @@ namespace ControleEstoque.API.Controllers
             return Ok(contas);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}")]        
         public async Task<IActionResult> GetById(int id)
         {
             var conta = await _contaReceberService.ObterPorIdAsync(id);
