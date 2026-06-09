@@ -2,6 +2,7 @@ using ControleEstoque.API.DTOs;
 using ControleEstoque.API.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace ControleEstoque.API.Controllers
 {
@@ -24,9 +25,13 @@ namespace ControleEstoque.API.Controllers
             return Ok(contas);
         }
 
+        // O cliente só deve acessar conta a receber que pertence exclusivamente a ele
+        // Há dois caminhos. Restringir esse endpoint para gerente e caixa...
+        // ... criando outro caminho que busca a conta a receber por id (e resgta do bearer token)
+        // oooou, aqui vc resgata a conta, e verifica se o clienteID da conta é igual ao do bearer token
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
-        {
+        {            
             var conta = await _contaReceberService.ObterPorIdAsync(id);
             if (conta == null) return NotFound();
             return Ok(conta);
