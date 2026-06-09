@@ -1,9 +1,7 @@
 using ControleEstoque.API.DTOs;
 using ControleEstoque.API.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-// login é aberto para todos, o restante precisa estar autenticado
 namespace ControleEstoque.API.Controllers
 {
     [ApiController]
@@ -173,11 +171,11 @@ namespace ControleEstoque.API.Controllers
         {
             try
             {
-                var usuario = await _usuarioService.AutenticarAsync(dto);
-                if (usuario == null)
+                var resultado = await _usuarioService.AutenticarAsync(dto);
+                if (resultado == null)
                     return Unauthorized(new { message = "Email ou senha incorretos." });
 
-                return Ok(usuario);
+                return Ok(resultado);
             }
             catch (Exception ex)
             {

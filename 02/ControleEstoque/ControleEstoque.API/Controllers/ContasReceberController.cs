@@ -17,14 +17,14 @@ namespace ControleEstoque.API.Controllers
             _contaReceberService = contaReceberService;
         }
 
-        [HttpGet] // Gerente e Caixa
+        [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var contas = await _contaReceberService.ObterTodosAsync();
             return Ok(contas);
         }
 
-        [HttpGet("{id}")]        // Gerente e Caixa, e o cliente busca a prórpia  conta
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var conta = await _contaReceberService.ObterPorIdAsync(id);
@@ -32,14 +32,16 @@ namespace ControleEstoque.API.Controllers
             return Ok(conta);
         }
 
-        [HttpPost] // Só gerente
+        [HttpPost]
+        [Authorize(Roles = "Gerente,Caixa")]
         public async Task<IActionResult> Create([FromBody] CriarContaReceberDto dto)
         {
             var novaConta = await _contaReceberService.CriarAsync(dto);
             return CreatedAtAction(nameof(GetById), new { id = novaConta.Id }, novaConta);
         }
 
-        [HttpPut("{id}")] // Só gerente
+        [HttpPut("{id}")]
+        [Authorize(Roles = "Gerente,Caixa")]
         public async Task<IActionResult> Update(int id, [FromBody] AtualizarContaReceberDto dto)
         {
             if (id != dto.Id) return BadRequest("O ID da rota difere do ID da conta a receber.");
@@ -48,7 +50,8 @@ namespace ControleEstoque.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")] // Só gerente
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Gerente,Caixa")]
         public async Task<IActionResult> Delete(int id)
         {
             await _contaReceberService.RemoverAsync(id);

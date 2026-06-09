@@ -1,11 +1,11 @@
 using ControleEstoque.API.Data;
 using ControleEstoque.API.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using System.Text;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,17 +17,26 @@ builder.Services.AddDbContext<AppDbContext>(opt
 builder.Services.AddScoped<IPedidoService, PedidoService>();
 builder.Services.AddScoped<IProdutoService, ProdutoService>();
 builder.Services.AddScoped<IFornecedorService, FornecedorService>();
-builder.Services.AddScoped<IUsuarioService, UsuarioService>();
-builder.Services.AddScoped<IContaReceberService, ContaReceberService>();
 builder.Services.AddScoped<IPasswordService, PasswordService>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IContaReceberService, ContaReceberService>();
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
-    // encerra o erro de refer�ncia c�clica de objetos para o JSON
+    // encerra o erro de referência cíclica de objetos para o JSON
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
 
+// Configuração do CORS para permitir que o frontend consuma a API
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader());
+});
 
+// Configuração da Autenticação JWT
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -39,12 +48,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuerSigningKey = true,
             ValidIssuer = builder.Configuration["Jwt:Emissor"],
             ValidAudience = builder.Configuration["Jwt:Audiencia"],
-            IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:ChaveSecreta"])) ??
-                throw new InvalidOperationException("Chave JWT não configurada")
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                builder.Configuration["Jwt:ChaveSecreta"] ?? throw new InvalidOperationException("Chave secreta JWT não configurada.")))
         };
     });
-
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -70,14 +77,6 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("PermitirTudo", policy =>
-    policy.AllowAnyOrigin()
-        .AllowAnyMethod()
-        .AllowAnyHeader());
-});
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -86,16 +85,36 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
-
 app.UseHttpsRedirection();
 
-app.UseAuthentication(); // Adicionar por conta do JWT
-
+app.UseCors("AllowAll");
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseCors("PermitirTudo");
-
 app.MapControllers();
+
+// --- INÍCIO: Seed do Administrador ---
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    var passwordService = scope.ServiceProvider.GetRequiredService<IPasswordService>();
+
+    // Verifica se não há nenhum Gerente (Administrador) cadastrado
+    if (!context.Gerentes.Any())
+    {
+        var admin = new ControleEstoque.API.Models.Gerente
+        {
+            Nome = "Administrador do Sistema",
+            Email = "admin@sistema.com",
+            SenhaHash = passwordService.HashPassword("admin123"),
+            Perfil = ControleEstoque.API.Models.PerfilUsuario.Gerente,
+            Setor = "TI"
+        };
+        
+        context.Gerentes.Add(admin);
+        context.SaveChanges();
+    }
+}
+// --- FIM: Seed do Administrador ---
 
 app.Run();

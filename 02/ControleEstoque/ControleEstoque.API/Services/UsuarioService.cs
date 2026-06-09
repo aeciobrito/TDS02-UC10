@@ -218,7 +218,7 @@ namespace ControleEstoque.API.Services
             {
                 Token = token,
                 Usuario = MapearParaDto(usuario),
-                ExpiresIn = DateTime.UtcNow.AddHours(12)
+                ExpiresIn = DateTime.UtcNow.AddHours(24)
             };
         }
 

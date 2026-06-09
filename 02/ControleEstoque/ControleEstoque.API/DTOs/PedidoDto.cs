@@ -12,8 +12,6 @@ namespace ControleEstoque.API.DTOs
 
     public class CriarPedidoDto
     {
-        // remover quando tiver o JWT
-        public int ClienteId { get; set; }
         public List<CriarItemPedidoDto> Itens { get; set; } = new();
     }
 
