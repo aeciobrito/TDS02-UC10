@@ -92,29 +92,4 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-
-// --- INÍCIO: Seed do Administrador ---
-using (var scope = app.Services.CreateScope())
-{
-    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    var passwordService = scope.ServiceProvider.GetRequiredService<IPasswordService>();
-
-    // Verifica se não há nenhum Gerente (Administrador) cadastrado
-    if (!context.Gerentes.Any())
-    {
-        var admin = new ControleEstoque.API.Models.Gerente
-        {
-            Nome = "Administrador do Sistema",
-            Email = "admin@sistema.com",
-            SenhaHash = passwordService.HashPassword("admin123"),
-            Perfil = ControleEstoque.API.Models.PerfilUsuario.Gerente,
-            Setor = "TI"
-        };
-        
-        context.Gerentes.Add(admin);
-        context.SaveChanges();
-    }
-}
-// --- FIM: Seed do Administrador ---
-
 app.Run();
