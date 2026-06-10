@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControleEstoque.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260518211956_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260609224946_Inicial")]
+    partial class Inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

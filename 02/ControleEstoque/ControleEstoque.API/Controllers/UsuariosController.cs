@@ -1,5 +1,6 @@
 using ControleEstoque.API.DTOs;
 using ControleEstoque.API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ControleEstoque.API.Controllers
@@ -32,6 +33,7 @@ namespace ControleEstoque.API.Controllers
         }
 
         [HttpPost("registrar-caixa")]
+        [Authorize(Roles = "Gerente")]
         public async Task<IActionResult> RegistrarCaixa([FromBody] CriarCaixaDto dto)
         {
             try
@@ -46,6 +48,7 @@ namespace ControleEstoque.API.Controllers
         }
 
         [HttpPost("registrar-gerente")]
+        [Authorize(Roles = "Gerente")]
         public async Task<IActionResult> RegistrarGerente([FromBody] CriarGerenteDto dto)
         {
             try
@@ -63,7 +66,9 @@ namespace ControleEstoque.API.Controllers
 
         #region Atualização
 
+        // cliente e caixa só podem atualizar os próprios cadastros
         [HttpPut("atualizar-cliente")]
+        [Authorize]
         public async Task<IActionResult> AtualizarCliente([FromBody] AtualizarClienteDto dto)
         {
             try
@@ -82,6 +87,7 @@ namespace ControleEstoque.API.Controllers
         }
 
         [HttpPut("atualizar-caixa")]
+        [Authorize(Roles = "Gerente")]
         public async Task<IActionResult> AtualizarCaixa([FromBody] AtualizarCaixaDto dto)
         {
             try
@@ -100,6 +106,7 @@ namespace ControleEstoque.API.Controllers
         }
 
         [HttpPut("atualizar-gerente")]
+        [Authorize(Roles = "Gerente")]
         public async Task<IActionResult> AtualizarGerente([FromBody] AtualizarGerenteDto dto)
         {
             try
@@ -122,13 +129,16 @@ namespace ControleEstoque.API.Controllers
         #region Consulta
 
         [HttpGet]
+        [Authorize(Roles = "Gerente,Caixa")]
         public async Task<IActionResult> GetAll()
         {
             var usuarios = await _usuarioService.ListarTodosUsuariosAsync();
             return Ok(usuarios);
         }
 
+        // Se for o cliente, só pode obter dele mesmo
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IActionResult> ObterPorId(int id)
         {
             var usuario = await _usuarioService.ObterUsuarioPorIdAsync(id);
@@ -136,7 +146,9 @@ namespace ControleEstoque.API.Controllers
             return Ok(usuario);
         }
 
+        // Se for o cliente, só pode obter dele mesmo
         [HttpGet("email/{email}")]
+        [Authorize]
         public async Task<IActionResult> ObterPorEmail(string email)
         {
             var usuario = await _usuarioService.ObterUsuarioPorEmailAsync(email);
@@ -149,6 +161,7 @@ namespace ControleEstoque.API.Controllers
         #region Deleção
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Gerente")]
         public async Task<IActionResult> Delete(int id)
         {
             try

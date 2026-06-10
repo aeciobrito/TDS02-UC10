@@ -19,6 +19,7 @@ namespace ControleEstoque.API.Controllers
             _pedidoService = pedidoService;
         }
 
+        // Cliente só pode ver o prórprio pedido
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPedido(int id)
         {
