@@ -35,6 +35,14 @@ namespace ControleEstoque.API.Controllers
             var conta = await _contaReceberService.ObterPorIdAsync(id);
             if (conta == null) return NotFound();
 
+            // opção 1
+            if(User.FindFirst(ClaimTypes.Role)?.Value == "Cliente")
+            {
+                var clienteId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (clienteId != conta.ClienteId.ToString()) return Forbid();
+            }
+
+            // opção 2
             if (User.IsInRole("Cliente"))
             {
                 var clienteId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
