@@ -1,9 +1,10 @@
 ﻿﻿using ControleEstoque.API.DTOs;
 using ControleEstoque.API.Models;
 using ControleEstoque.API.Services;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ControleEstoque.API.Controllers
 {
@@ -25,9 +26,12 @@ namespace ControleEstoque.API.Controllers
         {
             var pedido = await _pedidoService.ObterPedidoComDetalhesAsync(id);
 
-            if (pedido == null)
+            if (pedido == null) return NotFound();
+
+            if (User.IsInRole("Cliente"))
             {
-                return NotFound();
+                var clienteId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (clienteId != pedido.ClienteId.ToString()) return Unauthorized();
             }
 
             var pedidoDto = new PedidoDto

@@ -1,7 +1,10 @@
 using ControleEstoque.API.DTOs;
+using ControleEstoque.API.Models;
 using ControleEstoque.API.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ControleEstoque.API.Controllers
 {
@@ -66,11 +69,17 @@ namespace ControleEstoque.API.Controllers
 
         #region Atualização
 
-        // cliente e caixa só podem atualizar os próprios cadastros
+        // clientes só podem atualizar os próprios cadastros
         [HttpPut("atualizar-cliente")]
         [Authorize]
         public async Task<IActionResult> AtualizarCliente([FromBody] AtualizarClienteDto dto)
         {
+            if (User.FindFirst(ClaimTypes.Role)?.Value == "Cliente")
+            {
+                var clienteId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (clienteId != dto.Id.ToString()) return Unauthorized();
+            }
+
             try
             {
                 await _usuarioService.AtualizarClienteAsync(dto);
@@ -153,6 +162,13 @@ namespace ControleEstoque.API.Controllers
         {
             var usuario = await _usuarioService.ObterUsuarioPorEmailAsync(email);
             if (usuario == null) return NotFound();
+
+            if (User.IsInRole("Cliente"))
+            {
+                var clienteId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (clienteId != usuario.Id.ToString()) return Unauthorized();
+            }
+            
             return Ok(usuario);
         }
 
