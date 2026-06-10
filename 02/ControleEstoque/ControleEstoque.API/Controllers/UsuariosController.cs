@@ -2,6 +2,7 @@ using ControleEstoque.API.DTOs;
 using ControleEstoque.API.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace ControleEstoque.API.Controllers
 {
@@ -71,6 +72,12 @@ namespace ControleEstoque.API.Controllers
         [Authorize]
         public async Task<IActionResult> AtualizarCliente([FromBody] AtualizarClienteDto dto)
         {
+            if (User.IsInRole("Cliente"))
+            {
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (userId != dto.Id.ToString()) return Forbid();
+            }
+
             try
             {
                 await _usuarioService.AtualizarClienteAsync(dto);
@@ -89,7 +96,7 @@ namespace ControleEstoque.API.Controllers
         [HttpPut("atualizar-caixa")]
         [Authorize(Roles = "Gerente")]
         public async Task<IActionResult> AtualizarCaixa([FromBody] AtualizarCaixaDto dto)
-        {
+        {           
             try
             {
                 await _usuarioService.AtualizarCaixaAsync(dto);

@@ -25,15 +25,22 @@ namespace ControleEstoque.API.Controllers
             return Ok(contas);
         }
 
-        // O cliente só deve acessar conta a receber que pertence exclusivamente a ele
-        // Há dois caminhos. Restringir esse endpoint para gerente e caixa...
+        // O cliente sï¿½ deve acessar conta a receber que pertence exclusivamente a ele
+        // Hï¿½ dois caminhos. Restringir esse endpoint para gerente e caixa...
         // ... criando outro caminho que busca a conta a receber por id (e resgta do bearer token)
-        // oooou, aqui vc resgata a conta, e verifica se o clienteID da conta é igual ao do bearer token
+        // oooou, aqui vc resgata a conta, e verifica se o clienteID da conta ï¿½ igual ao do bearer token
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {            
             var conta = await _contaReceberService.ObterPorIdAsync(id);
             if (conta == null) return NotFound();
+
+            if (User.IsInRole("Cliente"))
+            {
+                var clienteId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (clienteId != conta.ClienteId.ToString()) return Forbid();
+            }
+
             return Ok(conta);
         }
 

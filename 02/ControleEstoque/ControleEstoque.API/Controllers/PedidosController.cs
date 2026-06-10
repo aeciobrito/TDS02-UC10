@@ -30,6 +30,12 @@ namespace ControleEstoque.API.Controllers
                 return NotFound();
             }
 
+            if (User.IsInRole("Cliente"))
+            {
+                var clienteId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (clienteId != pedido.ClienteId.ToString()) return Forbid();
+            }
+
             var pedidoDto = new PedidoDto
             {
                 Id = pedido.Id,
